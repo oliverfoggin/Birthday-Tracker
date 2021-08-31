@@ -31,23 +31,13 @@ struct PersonListView: Equatable, Identifiable {
   var person: Person
   var id: UUID { person.id }
   var age: String
-  var nextBirthday: Date
-  var sortType: Sort
+  var nextBirthday: String
   
   var title: String {
     person.name
   }
   
-  var subtitle: String {
-    switch sortType {
-    case .age:
-      return age
-    case .nextBirthday:
-      return PersonListView.dateFormatter.string(from: nextBirthday)
-    }
-  }
-  
-  init(person: Person, now: Date, calendar: Calendar, sort: Sort) {
+  init(person: Person, now: Date, calendar: Calendar) {
     self.person = person
     
     let ageComps = calendar.dateComponents([.year, .month, .day], from: person.dob, to: now)
@@ -68,9 +58,9 @@ struct PersonListView: Equatable, Identifiable {
       self.age = "unknown age"
     }
     
-    self.nextBirthday = person.nextBirthday(now: now, calendar: calendar)
-    
-    self.sortType = sort
+    self.nextBirthday = Self.dateFormatter.string(
+      from: person.nextBirthday(now: now, calendar: calendar)
+    )
   }
 }
 
@@ -89,12 +79,12 @@ struct AppState: Equatable {
     case .age:
       return people
         .sorted(by: \.dob)
-        .map { PersonListView(person: $0, now: d, calendar: calendar, sort: sort) }
+        .map { PersonListView(person: $0, now: d, calendar: calendar) }
         .identified
     case .nextBirthday:
       return people
         .sorted { $0.nextBirthday(now: d, calendar: calendar) < $1.nextBirthday(now: d, calendar: calendar) }
-        .map { PersonListView(person: $0, now: d, calendar: calendar, sort: sort) }
+        .map { PersonListView(person: $0, now: d, calendar: calendar) }
         .identified
     }
   }
@@ -154,16 +144,6 @@ let appReducer = Reducer<AppState, AppAction, AppEnvironment>.combine(
       
     case let .loadedResults(.success(people)):
       state.people = people
-//        .map {
-//          PersonListView(
-//            person: $0,
-//            now: environment.now(),
-//            calendar: environment.calendar,
-//            sort: state.sort
-//          )
-//        }
-//        .identified
-      
       state.sortedPeople = state.sortPeople(
         now: environment.now,
         calendar: environment.calendar
@@ -279,7 +259,7 @@ struct ContentView: View {
                   if (viewStore.sort == .age) {
                     
                   }
-                  Text(personListView.subtitle)
+                  Text(viewStore.sort == Sort.age ? personListView.age : personListView.nextBirthday)
                     .font(.caption)
                 }
               }
