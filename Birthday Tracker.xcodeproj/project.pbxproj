@@ -13,6 +13,11 @@
 		5A63CC6F26D5280200F7A14C /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5A63CC6E26D5280200F7A14C /* Preview Assets.xcassets */; };
 		5A63CC7926D5280200F7A14C /* Birthday_TrackerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A63CC7826D5280200F7A14C /* Birthday_TrackerTests.swift */; };
 		5A63CC8326D5280200F7A14C /* Birthday_TrackerUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A63CC8226D5280200F7A14C /* Birthday_TrackerUITests.swift */; };
+		5A63CC9126D5291E00F7A14C /* ComposableArchitecture in Frameworks */ = {isa = PBXBuildFile; productRef = 5A63CC9026D5291D00F7A14C /* ComposableArchitecture */; };
+		5A63CC9326D66C8900F7A14C /* NewPerson.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A63CC9226D66C8900F7A14C /* NewPerson.swift */; };
+		5A63CC9526D6837400F7A14C /* FileClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A63CC9426D6837400F7A14C /* FileClient.swift */; };
+		5A63CC9726D697B100F7A14C /* PersonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A63CC9626D697B100F7A14C /* PersonView.swift */; };
+		5A63CCCE26DC168900F7A14C /* Sequence.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A63CCCD26DC168900F7A14C /* Sequence.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -42,6 +47,10 @@
 		5A63CC7826D5280200F7A14C /* Birthday_TrackerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Birthday_TrackerTests.swift; sourceTree = "<group>"; };
 		5A63CC7E26D5280200F7A14C /* Birthday TrackerUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Birthday TrackerUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		5A63CC8226D5280200F7A14C /* Birthday_TrackerUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Birthday_TrackerUITests.swift; sourceTree = "<group>"; };
+		5A63CC9226D66C8900F7A14C /* NewPerson.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewPerson.swift; sourceTree = "<group>"; };
+		5A63CC9426D6837400F7A14C /* FileClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileClient.swift; sourceTree = "<group>"; };
+		5A63CC9626D697B100F7A14C /* PersonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonView.swift; sourceTree = "<group>"; };
+		5A63CCCD26DC168900F7A14C /* Sequence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Sequence.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -49,6 +58,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5A63CC9126D5291E00F7A14C /* ComposableArchitecture in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -92,10 +102,14 @@
 		5A63CC6626D5280000F7A14C /* Birthday Tracker */ = {
 			isa = PBXGroup;
 			children = (
+				5A63CCCC26DC167C00F7A14C /* Extensions */,
 				5A63CC6726D5280000F7A14C /* Birthday_TrackerApp.swift */,
 				5A63CC6926D5280000F7A14C /* ContentView.swift */,
 				5A63CC6B26D5280200F7A14C /* Assets.xcassets */,
 				5A63CC6D26D5280200F7A14C /* Preview Content */,
+				5A63CC9226D66C8900F7A14C /* NewPerson.swift */,
+				5A63CC9426D6837400F7A14C /* FileClient.swift */,
+				5A63CC9626D697B100F7A14C /* PersonView.swift */,
 			);
 			path = "Birthday Tracker";
 			sourceTree = "<group>";
@@ -124,6 +138,14 @@
 			path = "Birthday TrackerUITests";
 			sourceTree = "<group>";
 		};
+		5A63CCCC26DC167C00F7A14C /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				5A63CCCD26DC168900F7A14C /* Sequence.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -140,6 +162,9 @@
 			dependencies = (
 			);
 			name = "Birthday Tracker";
+			packageProductDependencies = (
+				5A63CC9026D5291D00F7A14C /* ComposableArchitecture */,
+			);
 			productName = "Birthday Tracker";
 			productReference = 5A63CC6426D5280000F7A14C /* Birthday Tracker.app */;
 			productType = "com.apple.product-type.application";
@@ -212,6 +237,9 @@
 				Base,
 			);
 			mainGroup = 5A63CC5B26D5280000F7A14C;
+			packageReferences = (
+				5A63CC8F26D5291D00F7A14C /* XCRemoteSwiftPackageReference "swift-composable-architecture" */,
+			);
 			productRefGroup = 5A63CC6526D5280000F7A14C /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -254,8 +282,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5A63CC9726D697B100F7A14C /* PersonView.swift in Sources */,
 				5A63CC6A26D5280000F7A14C /* ContentView.swift in Sources */,
+				5A63CCCE26DC168900F7A14C /* Sequence.swift in Sources */,
 				5A63CC6826D5280000F7A14C /* Birthday_TrackerApp.swift in Sources */,
+				5A63CC9526D6837400F7A14C /* FileClient.swift in Sources */,
+				5A63CC9326D66C8900F7A14C /* NewPerson.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -423,7 +455,7 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -453,7 +485,7 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -603,6 +635,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		5A63CC8F26D5291D00F7A14C /* XCRemoteSwiftPackageReference "swift-composable-architecture" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/pointfreeco/swift-composable-architecture";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 0.9.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		5A63CC9026D5291D00F7A14C /* ComposableArchitecture */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 5A63CC8F26D5291D00F7A14C /* XCRemoteSwiftPackageReference "swift-composable-architecture" */;
+			productName = ComposableArchitecture;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 5A63CC5C26D5280000F7A14C /* Project object */;
 }

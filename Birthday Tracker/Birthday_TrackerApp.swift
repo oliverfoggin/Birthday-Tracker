@@ -6,12 +6,19 @@
 //
 
 import SwiftUI
+import ComposableArchitecture
 
 @main
 struct Birthday_TrackerApp: App {
-    var body: some Scene {
-        WindowGroup {
-            ContentView()
-        }
+  var body: some Scene {
+    WindowGroup {
+      ContentView(
+        store: Store(
+          initialState: .init(),
+          reducer: appReducer,
+          environment: .live
+        )
+      )
     }
+  }
 }
