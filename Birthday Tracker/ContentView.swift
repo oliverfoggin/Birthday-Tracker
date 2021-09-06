@@ -210,7 +210,7 @@ let appReducer = Reducer<AppState, AppAction, AppEnvironment>.combine(
     }
   }
 )
-  .debug()
+.debug()
 
 struct ContentView: View {
   let store: Store<AppState, AppAction>

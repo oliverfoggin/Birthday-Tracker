@@ -16,9 +16,7 @@ struct PersonViewState: Equatable {
   var person: Person
   var now: () -> Date
   
-  var blah: Date = Date()
-  
-  var isEditSheetPresented = false
+  @BindableState var isEditSheetPresented = false
   
   var personEditState: PersonEditState {
     get { PersonEditState(person: person) }
@@ -33,10 +31,10 @@ struct PersonViewState: Equatable {
   }()
 }
 
-enum PersonViewAction {
+enum PersonViewAction: BindableAction {
   case onAppear
-  case setSheet(isPresented: Bool)
   case editAction(PersonEditAction)
+  case binding(BindingAction<PersonViewState>)
 }
 
 struct PersonViewEnvironment {}
@@ -54,15 +52,14 @@ let personViewReducer = Reducer.combine(
     switch action {
     case .onAppear:
       return .none
-    case let .setSheet(isPresented: presented):
-      state.isEditSheetPresented = presented
-      state.blah = Date()
-      return .none
     case .editAction:
+      return .none
+    case .binding(_):
       return .none
     }
   }
 )
+.binding()
 
 struct PersonView: View {
   let store: Store<PersonViewState, PersonViewAction>
@@ -74,12 +71,7 @@ struct PersonView: View {
         
         Text(PersonViewState.dateFormatter.string(from: viewStore.person.dob))
       }
-      .sheet(
-        isPresented: viewStore.binding(
-          get: \.isEditSheetPresented,
-          send: PersonViewAction.setSheet(isPresented:)
-        )
-      ) {
+      .sheet(isPresented: viewStore.$isEditSheetPresented) {
         PersonEditView(
           store: store.scope(
             state: \.personEditState,
@@ -95,7 +87,7 @@ struct PersonView: View {
       .toolbar {
         ToolbarItem(placement: .navigationBarTrailing) {
           Button {
-            viewStore.send(.setSheet(isPresented: true))
+            viewStore.send(.set(\.$isEditSheetPresented, true))
           } label: {
             Text("Edit")
           }
