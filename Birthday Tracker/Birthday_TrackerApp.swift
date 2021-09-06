@@ -12,7 +12,7 @@ import ComposableArchitecture
 struct Birthday_TrackerApp: App {
   var body: some Scene {
     WindowGroup {
-      ContentView(
+      AppView(
         store: Store(
           initialState: .init(),
           reducer: appReducer,

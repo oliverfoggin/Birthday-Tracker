@@ -7,18 +7,23 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5A228B1826E6B571005C8AD1 /* PersonListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A228B1726E6B571005C8AD1 /* PersonListView.swift */; };
+		5A228B1A26E6B5EE005C8AD1 /* NewPersonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A228B1926E6B5EE005C8AD1 /* NewPersonView.swift */; };
+		5A228B1D26E6B63A005C8AD1 /* AppView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A228B1C26E6B63A005C8AD1 /* AppView.swift */; };
+		5A228B2026E6B6A7005C8AD1 /* PersonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A228B1F26E6B6A7005C8AD1 /* PersonView.swift */; };
+		5A228B2226E6B6D1005C8AD1 /* PersonEditView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A228B2126E6B6D1005C8AD1 /* PersonEditView.swift */; };
 		5A63CC6826D5280000F7A14C /* Birthday_TrackerApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A63CC6726D5280000F7A14C /* Birthday_TrackerApp.swift */; };
-		5A63CC6A26D5280000F7A14C /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A63CC6926D5280000F7A14C /* ContentView.swift */; };
+		5A63CC6A26D5280000F7A14C /* AppState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A63CC6926D5280000F7A14C /* AppState.swift */; };
 		5A63CC6C26D5280200F7A14C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5A63CC6B26D5280200F7A14C /* Assets.xcassets */; };
 		5A63CC6F26D5280200F7A14C /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5A63CC6E26D5280200F7A14C /* Preview Assets.xcassets */; };
 		5A63CC7926D5280200F7A14C /* Birthday_TrackerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A63CC7826D5280200F7A14C /* Birthday_TrackerTests.swift */; };
 		5A63CC8326D5280200F7A14C /* Birthday_TrackerUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A63CC8226D5280200F7A14C /* Birthday_TrackerUITests.swift */; };
 		5A63CC9126D5291E00F7A14C /* ComposableArchitecture in Frameworks */ = {isa = PBXBuildFile; productRef = 5A63CC9026D5291D00F7A14C /* ComposableArchitecture */; };
-		5A63CC9326D66C8900F7A14C /* NewPerson.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A63CC9226D66C8900F7A14C /* NewPerson.swift */; };
+		5A63CC9326D66C8900F7A14C /* NewPersonState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A63CC9226D66C8900F7A14C /* NewPersonState.swift */; };
 		5A63CC9526D6837400F7A14C /* FileClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A63CC9426D6837400F7A14C /* FileClient.swift */; };
-		5A63CC9726D697B100F7A14C /* PersonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A63CC9626D697B100F7A14C /* PersonView.swift */; };
+		5A63CC9726D697B100F7A14C /* PersonState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A63CC9626D697B100F7A14C /* PersonState.swift */; };
 		5A63CCCE26DC168900F7A14C /* Sequence.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A63CCCD26DC168900F7A14C /* Sequence.swift */; };
-		5A63CCD026DFC5C200F7A14C /* PersonEditView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A63CCCF26DFC5C200F7A14C /* PersonEditView.swift */; };
+		5A63CCD026DFC5C200F7A14C /* PersonEditState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A63CCCF26DFC5C200F7A14C /* PersonEditState.swift */; };
 		5A63CCD226DFCC4300F7A14C /* Array.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A63CCD126DFCC4300F7A14C /* Array.swift */; };
 		5A63CCD526DFCC6E00F7A14C /* Person.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A63CCD426DFCC6E00F7A14C /* Person.swift */; };
 /* End PBXBuildFile section */
@@ -41,20 +46,25 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		5A228B1726E6B571005C8AD1 /* PersonListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonListView.swift; sourceTree = "<group>"; };
+		5A228B1926E6B5EE005C8AD1 /* NewPersonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewPersonView.swift; sourceTree = "<group>"; };
+		5A228B1C26E6B63A005C8AD1 /* AppView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppView.swift; sourceTree = "<group>"; };
+		5A228B1F26E6B6A7005C8AD1 /* PersonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonView.swift; sourceTree = "<group>"; };
+		5A228B2126E6B6D1005C8AD1 /* PersonEditView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonEditView.swift; sourceTree = "<group>"; };
 		5A63CC6426D5280000F7A14C /* Birthday Tracker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Birthday Tracker.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		5A63CC6726D5280000F7A14C /* Birthday_TrackerApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Birthday_TrackerApp.swift; sourceTree = "<group>"; };
-		5A63CC6926D5280000F7A14C /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		5A63CC6926D5280000F7A14C /* AppState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppState.swift; sourceTree = "<group>"; };
 		5A63CC6B26D5280200F7A14C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		5A63CC6E26D5280200F7A14C /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		5A63CC7426D5280200F7A14C /* Birthday TrackerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Birthday TrackerTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		5A63CC7826D5280200F7A14C /* Birthday_TrackerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Birthday_TrackerTests.swift; sourceTree = "<group>"; };
 		5A63CC7E26D5280200F7A14C /* Birthday TrackerUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Birthday TrackerUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		5A63CC8226D5280200F7A14C /* Birthday_TrackerUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Birthday_TrackerUITests.swift; sourceTree = "<group>"; };
-		5A63CC9226D66C8900F7A14C /* NewPerson.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewPerson.swift; sourceTree = "<group>"; };
+		5A63CC9226D66C8900F7A14C /* NewPersonState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewPersonState.swift; sourceTree = "<group>"; };
 		5A63CC9426D6837400F7A14C /* FileClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileClient.swift; sourceTree = "<group>"; };
-		5A63CC9626D697B100F7A14C /* PersonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonView.swift; sourceTree = "<group>"; };
+		5A63CC9626D697B100F7A14C /* PersonState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonState.swift; sourceTree = "<group>"; };
 		5A63CCCD26DC168900F7A14C /* Sequence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Sequence.swift; sourceTree = "<group>"; };
-		5A63CCCF26DFC5C200F7A14C /* PersonEditView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonEditView.swift; sourceTree = "<group>"; };
+		5A63CCCF26DFC5C200F7A14C /* PersonEditState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonEditState.swift; sourceTree = "<group>"; };
 		5A63CCD126DFCC4300F7A14C /* Array.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Array.swift; sourceTree = "<group>"; };
 		5A63CCD426DFCC6E00F7A14C /* Person.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Person.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -85,6 +95,37 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		5A228B1626E6B55B005C8AD1 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				5A228B1726E6B571005C8AD1 /* PersonListView.swift */,
+				5A228B1926E6B5EE005C8AD1 /* NewPersonView.swift */,
+				5A228B1C26E6B63A005C8AD1 /* AppView.swift */,
+				5A228B1F26E6B6A7005C8AD1 /* PersonView.swift */,
+				5A228B2126E6B6D1005C8AD1 /* PersonEditView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		5A228B1B26E6B60F005C8AD1 /* State */ = {
+			isa = PBXGroup;
+			children = (
+				5A63CC6926D5280000F7A14C /* AppState.swift */,
+				5A63CC9226D66C8900F7A14C /* NewPersonState.swift */,
+				5A63CC9626D697B100F7A14C /* PersonState.swift */,
+				5A63CCCF26DFC5C200F7A14C /* PersonEditState.swift */,
+			);
+			path = State;
+			sourceTree = "<group>";
+		};
+		5A228B1E26E6B686005C8AD1 /* Dependencies */ = {
+			isa = PBXGroup;
+			children = (
+				5A63CC9426D6837400F7A14C /* FileClient.swift */,
+			);
+			path = Dependencies;
+			sourceTree = "<group>";
+		};
 		5A63CC5B26D5280000F7A14C = {
 			isa = PBXGroup;
 			children = (
@@ -108,16 +149,14 @@
 		5A63CC6626D5280000F7A14C /* Birthday Tracker */ = {
 			isa = PBXGroup;
 			children = (
+				5A228B1E26E6B686005C8AD1 /* Dependencies */,
+				5A228B1B26E6B60F005C8AD1 /* State */,
+				5A228B1626E6B55B005C8AD1 /* Views */,
 				5A63CCD326DFCC6700F7A14C /* Models */,
 				5A63CCCC26DC167C00F7A14C /* Extensions */,
 				5A63CC6726D5280000F7A14C /* Birthday_TrackerApp.swift */,
-				5A63CC6926D5280000F7A14C /* ContentView.swift */,
 				5A63CC6B26D5280200F7A14C /* Assets.xcassets */,
 				5A63CC6D26D5280200F7A14C /* Preview Content */,
-				5A63CC9226D66C8900F7A14C /* NewPerson.swift */,
-				5A63CC9426D6837400F7A14C /* FileClient.swift */,
-				5A63CC9626D697B100F7A14C /* PersonView.swift */,
-				5A63CCCF26DFC5C200F7A14C /* PersonEditView.swift */,
 			);
 			path = "Birthday Tracker";
 			sourceTree = "<group>";
@@ -299,15 +338,20 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5A63CCD026DFC5C200F7A14C /* PersonEditView.swift in Sources */,
-				5A63CC9726D697B100F7A14C /* PersonView.swift in Sources */,
-				5A63CC6A26D5280000F7A14C /* ContentView.swift in Sources */,
+				5A63CCD026DFC5C200F7A14C /* PersonEditState.swift in Sources */,
+				5A63CC9726D697B100F7A14C /* PersonState.swift in Sources */,
+				5A63CC6A26D5280000F7A14C /* AppState.swift in Sources */,
 				5A63CCCE26DC168900F7A14C /* Sequence.swift in Sources */,
 				5A63CC6826D5280000F7A14C /* Birthday_TrackerApp.swift in Sources */,
 				5A63CCD226DFCC4300F7A14C /* Array.swift in Sources */,
 				5A63CCD526DFCC6E00F7A14C /* Person.swift in Sources */,
+				5A228B2226E6B6D1005C8AD1 /* PersonEditView.swift in Sources */,
 				5A63CC9526D6837400F7A14C /* FileClient.swift in Sources */,
-				5A63CC9326D66C8900F7A14C /* NewPerson.swift in Sources */,
+				5A228B1D26E6B63A005C8AD1 /* AppView.swift in Sources */,
+				5A228B2026E6B6A7005C8AD1 /* PersonView.swift in Sources */,
+				5A63CC9326D66C8900F7A14C /* NewPersonState.swift in Sources */,
+				5A228B1A26E6B5EE005C8AD1 /* NewPersonView.swift in Sources */,
+				5A228B1826E6B571005C8AD1 /* PersonListView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

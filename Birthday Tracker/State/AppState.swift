@@ -8,57 +8,12 @@
 import SwiftUI
 import ComposableArchitecture
 
-enum Sort: LocalizedStringKey, CaseIterable, Hashable {
-  case age = "Age"
-  case nextBirthday = "Next Birthday"
-}
-
-struct PersonListView: Equatable, Identifiable {
-  
-  static let dateFormatter: DateFormatter = {
-    let df = DateFormatter()
-    df.dateStyle = .medium
-    df.timeStyle = .none
-    return df
-  }()
-  
-  var person: Person
-  var id: UUID { person.id }
-  var age: String
-  var nextBirthday: String
-  
-  var title: String {
-    person.name
-  }
-  
-  init(person: Person, now: Date, calendar: Calendar) {
-    self.person = person
-    
-    let ageComps = calendar.dateComponents([.year, .month, .day], from: person.dob, to: now)
-    
-    if ageComps.year! == 1 {
-      self.age = "One year old"
-    } else if ageComps.year! > 1 {
-      self.age = "\(ageComps.year!) years old"
-    } else if ageComps.month! == 1 {
-      self.age = "1 month old"
-    } else if ageComps.month! > 1 {
-      self.age = "\(ageComps.month!) months old"
-    } else if ageComps.day! == 1 {
-      self.age = "1 day old"
-    } else if ageComps.day! > 1 {
-      self.age = "\(ageComps.day!) days old"
-    } else {
-      self.age = "unknown age"
-    }
-    
-    self.nextBirthday = Self.dateFormatter.string(
-      from: person.nextBirthday(now: now, calendar: calendar)
-    )
-  }
-}
-
 struct AppState: Equatable {
+  enum Sort: LocalizedStringKey, CaseIterable, Hashable {
+    case age = "Age"
+    case nextBirthday = "Next Birthday"
+  }
+  
   var sort: Sort = .age
   var people: IdentifiedArrayOf<Person> = []
   var newPersonState: NewPersonState?
@@ -92,7 +47,7 @@ enum AppAction {
   case personViewAction(PersonViewAction)
   case setSheet(isPresented: Bool)
   case setSelectedPerson(Person.ID?)
-  case sortPicked(Sort)
+  case sortPicked(AppState.Sort)
 }
 
 struct AppEnvironment {
@@ -211,102 +166,3 @@ let appReducer = Reducer<AppState, AppAction, AppEnvironment>.combine(
   }
 )
 .debug()
-
-struct ContentView: View {
-  let store: Store<AppState, AppAction>
-  
-  @State private var isActive = false
-  
-  var body: some View {
-    WithViewStore(self.store) { viewStore in
-      NavigationView {
-        VStack {
-          Picker(
-            "Sort:",
-            selection: viewStore.binding(get: \.sort, send: AppAction.sortPicked).animation()
-          ) {
-            ForEach(Sort.allCases, id: \.self) { sort in
-              Text(sort.rawValue).tag(sort)
-            }
-          }
-          .pickerStyle(SegmentedPickerStyle())
-          .padding(.horizontal)
-          
-          List {
-            ForEach(viewStore.sortedPeople) { personListView in
-              NavigationLink(
-                tag: personListView.id,
-                selection: viewStore.binding(
-                  get: \.selectedPersonId,
-                  send: AppAction.setSelectedPerson
-                )
-              ){
-                IfLetStore(
-                  store.scope(state: \.selectedPerson, action: AppAction.personViewAction),
-                  then: PersonView.init(store:),
-                  else: { Text("Nothing here") }
-                )
-              } label: {
-                HStack {
-                  Text(personListView.title)
-                  Spacer()
-                  if (viewStore.sort == .age) {
-                    
-                  }
-                  Text(viewStore.sort == Sort.age ? personListView.age : personListView.nextBirthday)
-                    .font(.caption)
-                }
-              }
-            }
-          }
-        }
-        .sheet(
-          isPresented: viewStore.binding(
-            get: \.isNewPersonSheetPresented,
-            send: AppAction.setSheet(isPresented:)
-          )
-        ) {
-          IfLetStore(
-            self.store.scope(
-              state: \.newPersonState,
-              action: AppAction.newPersonAction
-            ),
-            then: NewPersonView.init(store:)
-          )
-        }
-        .navigationBarTitle("Birthdays")
-        .toolbar {
-          ToolbarItem(placement: .navigationBarTrailing) {
-            Button {
-              viewStore.send(AppAction.addButtonTapped)
-            } label: {
-              Image(systemName: "plus.circle")
-            }
-          }
-        }
-        .onAppear {
-          if (viewStore.people.count == 0) {
-            viewStore.send(.onAppear)
-          }
-        }
-      }
-    }
-  }
-}
-
-struct ContentView_Previews: PreviewProvider {
-  static var previews: some View {
-    ContentView(
-      store: Store(
-        initialState: .init(
-          people: IdentifiedArray(uniqueElements: [
-            Person(id: UUID(), name: "Oliver", dob: Date()),
-            Person(id: UUID(), name: "Daniel", dob: Date()),
-          ])
-        ),
-        reducer: appReducer,
-        environment: AppEnvironment.live
-      )
-    )
-  }
-}
