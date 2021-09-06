@@ -95,27 +95,13 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		5A228B1626E6B55B005C8AD1 /* Views */ = {
+		5A228B1B26E6B60F005C8AD1 /* Person View */ = {
 			isa = PBXGroup;
 			children = (
-				5A228B1726E6B571005C8AD1 /* PersonListView.swift */,
-				5A228B1926E6B5EE005C8AD1 /* NewPersonView.swift */,
-				5A228B1C26E6B63A005C8AD1 /* AppView.swift */,
-				5A228B1F26E6B6A7005C8AD1 /* PersonView.swift */,
-				5A228B2126E6B6D1005C8AD1 /* PersonEditView.swift */,
-			);
-			path = Views;
-			sourceTree = "<group>";
-		};
-		5A228B1B26E6B60F005C8AD1 /* State */ = {
-			isa = PBXGroup;
-			children = (
-				5A63CC6926D5280000F7A14C /* AppState.swift */,
-				5A63CC9226D66C8900F7A14C /* NewPersonState.swift */,
 				5A63CC9626D697B100F7A14C /* PersonState.swift */,
-				5A63CCCF26DFC5C200F7A14C /* PersonEditState.swift */,
+				5A228B1F26E6B6A7005C8AD1 /* PersonView.swift */,
 			);
-			path = State;
+			path = "Person View";
 			sourceTree = "<group>";
 		};
 		5A228B1E26E6B686005C8AD1 /* Dependencies */ = {
@@ -124,6 +110,34 @@
 				5A63CC9426D6837400F7A14C /* FileClient.swift */,
 			);
 			path = Dependencies;
+			sourceTree = "<group>";
+		};
+		5A228B2326E6B701005C8AD1 /* App */ = {
+			isa = PBXGroup;
+			children = (
+				5A63CC6926D5280000F7A14C /* AppState.swift */,
+				5A228B1726E6B571005C8AD1 /* PersonListView.swift */,
+				5A228B1C26E6B63A005C8AD1 /* AppView.swift */,
+			);
+			path = App;
+			sourceTree = "<group>";
+		};
+		5A228B2426E6B70A005C8AD1 /* Edit Person */ = {
+			isa = PBXGroup;
+			children = (
+				5A63CCCF26DFC5C200F7A14C /* PersonEditState.swift */,
+				5A228B2126E6B6D1005C8AD1 /* PersonEditView.swift */,
+			);
+			path = "Edit Person";
+			sourceTree = "<group>";
+		};
+		5A228B2526E6B717005C8AD1 /* New Person */ = {
+			isa = PBXGroup;
+			children = (
+				5A63CC9226D66C8900F7A14C /* NewPersonState.swift */,
+				5A228B1926E6B5EE005C8AD1 /* NewPersonView.swift */,
+			);
+			path = "New Person";
 			sourceTree = "<group>";
 		};
 		5A63CC5B26D5280000F7A14C = {
@@ -149,14 +163,16 @@
 		5A63CC6626D5280000F7A14C /* Birthday Tracker */ = {
 			isa = PBXGroup;
 			children = (
-				5A228B1E26E6B686005C8AD1 /* Dependencies */,
-				5A228B1B26E6B60F005C8AD1 /* State */,
-				5A228B1626E6B55B005C8AD1 /* Views */,
-				5A63CCD326DFCC6700F7A14C /* Models */,
-				5A63CCCC26DC167C00F7A14C /* Extensions */,
-				5A63CC6726D5280000F7A14C /* Birthday_TrackerApp.swift */,
+				5A228B2326E6B701005C8AD1 /* App */,
 				5A63CC6B26D5280200F7A14C /* Assets.xcassets */,
+				5A63CC6726D5280000F7A14C /* Birthday_TrackerApp.swift */,
+				5A228B1E26E6B686005C8AD1 /* Dependencies */,
+				5A228B2426E6B70A005C8AD1 /* Edit Person */,
+				5A63CCCC26DC167C00F7A14C /* Extensions */,
+				5A63CCD326DFCC6700F7A14C /* Models */,
+				5A228B2526E6B717005C8AD1 /* New Person */,
 				5A63CC6D26D5280200F7A14C /* Preview Content */,
+				5A228B1B26E6B60F005C8AD1 /* Person View */,
 			);
 			path = "Birthday Tracker";
 			sourceTree = "<group>";
