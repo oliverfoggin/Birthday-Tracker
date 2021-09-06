@@ -8,12 +8,6 @@
 import SwiftUI
 import ComposableArchitecture
 
-extension Array where Element: Identifiable {
-  var identified: IdentifiedArrayOf<Element> {
-    IdentifiedArray(uniqueElements: self)
-  }
-}
-
 enum Sort: LocalizedStringKey, CaseIterable, Hashable {
   case age = "Age"
   case nextBirthday = "Next Birthday"
@@ -128,7 +122,7 @@ let appReducer = Reducer<AppState, AppAction, AppEnvironment>.combine(
   personViewReducer
     .optional()
     .pullback(
-      state: \.selectedPerson,
+      state: \AppState.selectedPerson,
       action: /AppAction.personViewAction,
       environment: { _ in PersonViewEnvironment() }
     ),
@@ -216,7 +210,7 @@ let appReducer = Reducer<AppState, AppAction, AppEnvironment>.combine(
     }
   }
 )
-  .debugActions()
+  .debug()
 
 struct ContentView: View {
   let store: Store<AppState, AppAction>
@@ -248,7 +242,7 @@ struct ContentView: View {
                 )
               ){
                 IfLetStore(
-                  self.store.scope(state: \.selectedPerson, action: AppAction.personViewAction),
+                  store.scope(state: \.selectedPerson, action: AppAction.personViewAction),
                   then: PersonView.init(store:),
                   else: { Text("Nothing here") }
                 )
@@ -311,7 +305,7 @@ struct ContentView_Previews: PreviewProvider {
           ])
         ),
         reducer: appReducer,
-        environment: .live
+        environment: AppEnvironment.live
       )
     )
   }

@@ -8,30 +8,6 @@
 import SwiftUI
 import ComposableArchitecture
 
-struct Person: Identifiable, Equatable, Codable {
-  var id: UUID
-  var name: String
-  var dob: Date
-  
-  func nextBirthday(now: Date, calendar: Calendar) -> Date {
-    let nowYear = calendar.dateComponents([.year], from: now).year!
-    
-    var dobComps = calendar.dateComponents([.month, .day], from: dob)
-    dobComps.year = nowYear
-    
-    let thisYearBirthday = calendar.date(from: dobComps)!
-    
-    if thisYearBirthday > now {
-      print(thisYearBirthday)
-      return thisYearBirthday
-    }
-    
-    let nextYearBirthday = calendar.date(byAdding: .year, value: 1, to: thisYearBirthday)!
-    print(nextYearBirthday)
-    return nextYearBirthday
-  }
-}
-
 struct PersonViewState: Equatable {
   static func == (lhs: PersonViewState, rhs: PersonViewState) -> Bool {
     lhs.person == rhs.person
@@ -40,33 +16,53 @@ struct PersonViewState: Equatable {
   var person: Person
   var now: () -> Date
   
-  static let ageFormatter: RelativeDateTimeFormatter = {
-    let df = RelativeDateTimeFormatter()
-    df.formattingContext = Formatter.Context.listItem
-    df.unitsStyle = RelativeDateTimeFormatter.UnitsStyle.spellOut
-    df.dateTimeStyle = RelativeDateTimeFormatter.DateTimeStyle.numeric
+  var blah: Date = Date()
+  
+  var isEditSheetPresented = false
+  
+  var personEditState: PersonEditState {
+    get { PersonEditState(person: person) }
+    set { person = newValue.person }
+  }
+  
+  static let dateFormatter: DateFormatter = {
+    let df = DateFormatter()
+    df.timeStyle = .none
+    df.dateStyle = .full
     return df
   }()
 }
 
 enum PersonViewAction {
-  case binding(BindingAction<PersonViewState>)
   case onAppear
+  case setSheet(isPresented: Bool)
+  case editAction(PersonEditAction)
 }
 
 struct PersonViewEnvironment {}
 
-let personViewReducer = Reducer<PersonViewState, PersonViewAction, PersonViewEnvironment> {
-  state, action, environment in
-  
-  switch action {
-  case .binding:
-    return .none
-  case .onAppear:
-    return .none
+let personViewReducer = Reducer.combine(
+  personEditReducer
+    .pullback(
+      state: \.personEditState,
+      action: /PersonViewAction.editAction,
+      environment: { _ in PersonEditEnvironment() }
+    ),
+  Reducer<PersonViewState, PersonViewAction, PersonViewEnvironment> {
+    state, action, environment in
+
+    switch action {
+    case .onAppear:
+      return .none
+    case let .setSheet(isPresented: presented):
+      state.isEditSheetPresented = presented
+      state.blah = Date()
+      return .none
+    case .editAction:
+      return .none
+    }
   }
-}
-  .binding(action: /PersonViewAction.binding)
+)
 
 struct PersonView: View {
   let store: Store<PersonViewState, PersonViewAction>
@@ -76,13 +72,35 @@ struct PersonView: View {
       Form {
         Text(viewStore.person.name)
         
-        Text(PersonViewState.ageFormatter.localizedString(for: viewStore.person.dob, relativeTo: Date()))
+        Text(PersonViewState.dateFormatter.string(from: viewStore.person.dob))
+      }
+      .sheet(
+        isPresented: viewStore.binding(
+          get: \.isEditSheetPresented,
+          send: PersonViewAction.setSheet(isPresented:)
+        )
+      ) {
+        PersonEditView(
+          store: store.scope(
+            state: \.personEditState,
+            action: PersonViewAction.editAction
+          )
+        )
       }
       .navigationTitle(viewStore.person.name)
       .onAppear {
         viewStore.send(.onAppear)
       }
       .background(Color.yellow)
+      .toolbar {
+        ToolbarItem(placement: .navigationBarTrailing) {
+          Button {
+            viewStore.send(.setSheet(isPresented: true))
+          } label: {
+            Text("Edit")
+          }
+        }
+      }
     }
   }
 }

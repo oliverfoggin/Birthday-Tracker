@@ -9,14 +9,14 @@ import SwiftUI
 import ComposableArchitecture
 
 struct NewPersonState: Equatable {
-  var dob: Date
-  var name: String = ""
+  @BindableState var dob: Date
+  @BindableState var name: String = ""
   var saveButtonDisabled: Bool {
     name.isEmpty
   }
 }
 
-enum NewPersonAction {
+enum NewPersonAction: BindableAction {
   case binding(BindingAction<NewPersonState>)
   case saveButtonTapped
   case cancelButtonTapped
@@ -38,7 +38,7 @@ let newPersonReducer = Reducer<NewPersonState, NewPersonAction, NewPersonEnviron
     return .none
   }
 }
-.binding(action: /NewPersonAction.binding)
+.binding()
 
 struct NewPersonView: View {
   let store: Store<NewPersonState, NewPersonAction>
@@ -47,15 +47,8 @@ struct NewPersonView: View {
     WithViewStore(self.store) { viewStore in
       NavigationView {
         Form {
-          TextField(
-            "Name",
-            text: viewStore.binding(keyPath: \.name, send: NewPersonAction.binding)
-          )
-          DatePicker(
-            "DOB",
-            selection: viewStore.binding(keyPath: \.dob, send: NewPersonAction.binding),
-            displayedComponents: .date
-          )
+          TextField("Name", text: viewStore.$name)
+          DatePicker("DOB", selection: viewStore.$dob, displayedComponents: .date)
         }
         .navigationBarTitle("New Person")
         .toolbar {

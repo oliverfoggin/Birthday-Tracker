@@ -6,8 +6,8 @@
         "repositoryURL": "https://github.com/pointfreeco/combine-schedulers",
         "state": {
           "branch": null,
-          "revision": "6dcc7c034d28fe7ac652453faeae07656f723909",
-          "version": "0.5.1"
+          "revision": "6bde3b0063ba8e7537b43744948535ca7e9e0dad",
+          "version": "0.5.2"
         }
       },
       {
@@ -33,8 +33,8 @@
         "repositoryURL": "https://github.com/pointfreeco/swift-composable-architecture",
         "state": {
           "branch": null,
-          "revision": "575d7c0d59517af9fe3025b00aa28746223d53c3",
-          "version": "0.25.0"
+          "revision": "60dc8067185b3e1fb29237f5a4548bff005b0fec",
+          "version": "0.26.0"
         }
       },
       {
@@ -51,8 +51,8 @@
         "repositoryURL": "https://github.com/pointfreeco/swift-identified-collections",
         "state": {
           "branch": null,
-          "revision": "edececbdb56b07e9402f2f3f5b907d220a28b4ea",
-          "version": "0.1.1"
+          "revision": "04502c882077cd838d380d05b127db9a6e48d8da",
+          "version": "0.2.0"
         }
       },
       {

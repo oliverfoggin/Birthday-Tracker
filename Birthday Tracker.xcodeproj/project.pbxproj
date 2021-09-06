@@ -18,6 +18,9 @@
 		5A63CC9526D6837400F7A14C /* FileClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A63CC9426D6837400F7A14C /* FileClient.swift */; };
 		5A63CC9726D697B100F7A14C /* PersonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A63CC9626D697B100F7A14C /* PersonView.swift */; };
 		5A63CCCE26DC168900F7A14C /* Sequence.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A63CCCD26DC168900F7A14C /* Sequence.swift */; };
+		5A63CCD026DFC5C200F7A14C /* PersonEditView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A63CCCF26DFC5C200F7A14C /* PersonEditView.swift */; };
+		5A63CCD226DFCC4300F7A14C /* Array.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A63CCD126DFCC4300F7A14C /* Array.swift */; };
+		5A63CCD526DFCC6E00F7A14C /* Person.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A63CCD426DFCC6E00F7A14C /* Person.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,6 +54,9 @@
 		5A63CC9426D6837400F7A14C /* FileClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileClient.swift; sourceTree = "<group>"; };
 		5A63CC9626D697B100F7A14C /* PersonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonView.swift; sourceTree = "<group>"; };
 		5A63CCCD26DC168900F7A14C /* Sequence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Sequence.swift; sourceTree = "<group>"; };
+		5A63CCCF26DFC5C200F7A14C /* PersonEditView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonEditView.swift; sourceTree = "<group>"; };
+		5A63CCD126DFCC4300F7A14C /* Array.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Array.swift; sourceTree = "<group>"; };
+		5A63CCD426DFCC6E00F7A14C /* Person.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Person.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -102,6 +108,7 @@
 		5A63CC6626D5280000F7A14C /* Birthday Tracker */ = {
 			isa = PBXGroup;
 			children = (
+				5A63CCD326DFCC6700F7A14C /* Models */,
 				5A63CCCC26DC167C00F7A14C /* Extensions */,
 				5A63CC6726D5280000F7A14C /* Birthday_TrackerApp.swift */,
 				5A63CC6926D5280000F7A14C /* ContentView.swift */,
@@ -110,6 +117,7 @@
 				5A63CC9226D66C8900F7A14C /* NewPerson.swift */,
 				5A63CC9426D6837400F7A14C /* FileClient.swift */,
 				5A63CC9626D697B100F7A14C /* PersonView.swift */,
+				5A63CCCF26DFC5C200F7A14C /* PersonEditView.swift */,
 			);
 			path = "Birthday Tracker";
 			sourceTree = "<group>";
@@ -142,8 +150,17 @@
 			isa = PBXGroup;
 			children = (
 				5A63CCCD26DC168900F7A14C /* Sequence.swift */,
+				5A63CCD126DFCC4300F7A14C /* Array.swift */,
 			);
 			path = Extensions;
+			sourceTree = "<group>";
+		};
+		5A63CCD326DFCC6700F7A14C /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				5A63CCD426DFCC6E00F7A14C /* Person.swift */,
+			);
+			path = Models;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -282,10 +299,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5A63CCD026DFC5C200F7A14C /* PersonEditView.swift in Sources */,
 				5A63CC9726D697B100F7A14C /* PersonView.swift in Sources */,
 				5A63CC6A26D5280000F7A14C /* ContentView.swift in Sources */,
 				5A63CCCE26DC168900F7A14C /* Sequence.swift in Sources */,
 				5A63CC6826D5280000F7A14C /* Birthday_TrackerApp.swift in Sources */,
+				5A63CCD226DFCC4300F7A14C /* Array.swift in Sources */,
+				5A63CCD526DFCC6E00F7A14C /* Person.swift in Sources */,
 				5A63CC9526D6837400F7A14C /* FileClient.swift in Sources */,
 				5A63CC9326D66C8900F7A14C /* NewPerson.swift in Sources */,
 			);
