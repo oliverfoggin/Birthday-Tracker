@@ -116,8 +116,8 @@
 			isa = PBXGroup;
 			children = (
 				5A63CC6926D5280000F7A14C /* AppState.swift */,
-				5A228B1726E6B571005C8AD1 /* PersonListView.swift */,
 				5A228B1C26E6B63A005C8AD1 /* AppView.swift */,
+				5A228B1726E6B571005C8AD1 /* PersonListView.swift */,
 			);
 			path = App;
 			sourceTree = "<group>";
@@ -204,8 +204,8 @@
 		5A63CCCC26DC167C00F7A14C /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
-				5A63CCCD26DC168900F7A14C /* Sequence.swift */,
 				5A63CCD126DFCC4300F7A14C /* Array.swift */,
+				5A63CCCD26DC168900F7A14C /* Sequence.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
